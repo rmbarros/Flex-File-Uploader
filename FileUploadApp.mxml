@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:com="com.flashdev.file.*" layout="absolute"
+	creationComplete="initApp()" viewSourceURL="srcview/index.html">
+	
+	<mx:Script>
+		<![CDATA[
+		
+			import mx.controls.Alert;
+			
+			private const _strDomain:String = new String("");
+			private const _strUploadScript:String = new String(_strDomain + "upload.php");
+			
+			// Initalize
+			private function initApp():void {
+				//Security.allowDomain(_strDomain);
+			}
+			
+		]]>
+	</mx:Script>
+	
+	<mx:Canvas width="400" height="300" horizontalCenter="0" verticalCenter="0">
+		<com:FileUpload
+			width="100%" height="100%"
+			uploadUrl="{_strUploadScript}"
+			uploadComplete="Alert.show('File(s) have been uploaded.', 'Upload successful')" 
+			uploadIOError="Alert.show('IO Error in uploading file.', 'Error')" 
+			uploadSecurityError="Alert.show('Security Error in uploading file.', 'Error')"/>
+	</mx:Canvas>
+</mx:Application>
