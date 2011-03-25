@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<skins:PanelSkin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		xmlns:mx="library://ns.adobe.com/flex/mx" 
+		xmlns:skins="skins.*">
+		
+<!--	
+<skins:states>
+		<s:State name="normalWithControlBar" />	
+		
+		<s:State name="disabled"/>
+		
+		<s:State name="normal"/>
+	</skins:states>
+-->
+	
+	<fx:Declarations>
+		<s:SolidColor id="fillColor" color="#f83909"/>
+	</fx:Declarations>
+	
+		
+</skins:PanelSkin>

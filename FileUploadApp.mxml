@@ -19,7 +19,7 @@
 	</mx:Script>
 	
 	<mx:Canvas width="400" height="300" horizontalCenter="0" verticalCenter="0">
-		<com:FileUpload
+		<com:FileUpload skinClass="skins.FileUploadSkin"
 			width="100%" height="100%"
 			uploadUrl="{_strUploadScript}"
 			uploadComplete="Alert.show('File(s) have been uploaded.', 'Upload successful')" 
