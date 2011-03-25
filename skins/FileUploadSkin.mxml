@@ -1,24 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<skins:PanelSkin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark" 
 		xmlns:mx="library://ns.adobe.com/flex/mx" 
-		xmlns:skins="skins.*">
+		>
 		
-<!--	
-<skins:states>
-		<s:State name="normalWithControlBar" />	
-		
-		<s:State name="disabled"/>
-		
-		<s:State name="normal"/>
-	</skins:states>
--->
+	<s:states>
+        <s:State name="normal" />
+        <s:State name="disabled" />
+        <s:State name="normalWithControlBar" stateGroups="withControls" />
+        <s:State name="disabledWithControlBar" stateGroups="withControls" />
+    </s:states>
 	
-	<fx:Declarations>
-		<s:SolidColor id="fillColor" color="#f83909"/>
-	</fx:Declarations>
-	
-
+	<s:Group left="0" right="0" top="0" bottom="0">
+        
+       
+        
+       
+        
+        <!-- layer 3: contents -->
+        <!--- Contains the vertical stack of titlebar content and controlbar. -->
+        <s:Group left="1" right="1" top="1" bottom="1" id="contents">
+            <s:layout>
+                <s:VerticalLayout gap="0" horizontalAlign="justify" />
+            </s:layout>
+            
+            <!--- @private -->
+            <s:Group id="topGroup">
+                
+               
+                
+                <!-- layer 3: text -->
+                <!--- @copy spark.components.Panel#titleDisplay -->
+                <s:Label id="titleDisplay" maxDisplayedLines="1"
+                         left="9" right="3" top="1" bottom="0" minHeight="30"
+                         verticalAlign="middle" textAlign="start" fontWeight="bold">
+                </s:Label>
+            </s:Group>
+            
+            <!--
+                Note: setting the minimum size to 0 here so that changes to the host component's
+                size will not be thwarted by this skin part's minimum size.   This is a compromise,
+                more about it here: http://bugs.adobe.com/jira/browse/SDK-21143
+            -->
+            <!--- @copy spark.components.SkinnableContainer#contentGroup -->
+            <s:Group id="contentGroup" width="100%" height="100%" minWidth="0" minHeight="0">
+            </s:Group>
+            
+            <!--- @private -->
+            <s:Group id="bottomGroup" minWidth="0" minHeight="0"
+                     includeIn="normalWithControlBar, disabledWithControlBar" >
+                
+                <!-- layer 3: control bar -->
+                <!--- @copy spark.components.Panel#controlBarGroup -->
+                <s:Group id="controlBarGroup" left="0" right="0" top="1" bottom="1" minWidth="0" minHeight="0">
+                    <s:layout>
+                        <s:HorizontalLayout paddingLeft="10" paddingRight="10" paddingTop="7" paddingBottom="7" gap="10" />
+                    </s:layout>
+                </s:Group>
+            </s:Group>
+        </s:Group>
+    </s:Group>
 		
-</skins:PanelSkin>
+</s:SparkSkin>

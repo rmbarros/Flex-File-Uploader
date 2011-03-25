@@ -41,6 +41,8 @@
 				_arrUploadFiles = new Array();				
 				enableUI();
 				uploadCheck();
+				
+				updateStatus("Status: no files selected.");
 			}
 			
 			// Called to add file(s) for upload
@@ -79,6 +81,8 @@
 				updateProgBar();
 				scrollFiles();
 				uploadCheck();
+				
+				updateStatus("Status: files selected for upload.");
 			}
 			
 			// Called to format number to file size
@@ -127,6 +131,10 @@
 					btnUpload.enabled = true;
 					listFiles.verticalScrollPolicy = "on";
 				}
+			}
+			
+			private function updateStatus(msg:String):void {
+				feedbackMsg.text = msg;
 			}
 			
 			// Disable UI control
